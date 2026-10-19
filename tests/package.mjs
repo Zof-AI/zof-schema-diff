@@ -38,7 +38,7 @@ try {
     JSON.stringify({ private: true, type: "module" }),
   );
   const candidates = [];
-  const evidence = resolve("../../orchestration/artifacts/zof-ai-evidence-spec-0.1.0.tgz");
+  const evidence = resolve("../../orchestration/artifacts/zofai-evidence-spec-0.1.0.tgz");
   try { await access(evidence); candidates.push(evidence); } catch {}
   run(process.platform === "win32" ? "npm.cmd" : "npm", [
     "install",
@@ -48,17 +48,17 @@ try {
     ...candidates,
     join(temp, packed.filename),
   ]);
-  const cli = join(temp, "node_modules", "@zof-ai/schema-diff", "dist/cli.js");
+  const cli = join(temp, "node_modules", "@zofai/schema-diff", "dist/cli.js");
   assert.match(run(process.execPath, [cli, "--version"]), /0\.1\.0/);
   assert.match(run(process.execPath, [cli, "--help"]), /Static/);
   run(process.execPath, [
     "--input-type=module",
     "-e",
-    "import assert from 'node:assert/strict'; import { compareSchemas } from '@zof-ai/schema-diff'; assert.equal(compareSchemas('CREATE TABLE t (id int);','CREATE TABLE t (id text);').risky,true);",
+    "import assert from 'node:assert/strict'; import { compareSchemas } from '@zofai/schema-diff'; assert.equal(compareSchemas('CREATE TABLE t (id int);','CREATE TABLE t (id text);').risky,true);",
   ]);
   const metadata = JSON.parse(
     await readFile(
-      join(temp, "node_modules", "@zof-ai/schema-diff", "package.json"),
+      join(temp, "node_modules", "@zofai/schema-diff", "package.json"),
       "utf8",
     ),
   );
@@ -68,7 +68,7 @@ try {
       status: "passed",
       checks: 5,
       files: packed.files.length,
-      package: "@zof-ai/schema-diff",
+      package: "@zofai/schema-diff",
     }),
   );
 } finally {

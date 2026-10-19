@@ -18,7 +18,7 @@ npm test
 
 The bootstrap downloads only the exact `v0.1.0` dependency assets from [GitHub Releases](https://github.com/Zof-AI/zof-schema-diff/releases), as listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
 
-GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
+GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zofai` packages are published on npm or that the VS Code extension is listed in Marketplace.
 <!-- ZOF_RELEASE_INSTALL_END -->
 
 ## Local installation
@@ -50,7 +50,7 @@ Set `--root DIR` to constrain file reads, or `--fail-on medium` to fail CI on op
 ## Library
 
 ```js
-import { compareSchemas, parseSchema, readSchema } from '@zof-ai/schema-diff';
+import { compareSchemas, parseSchema, readSchema } from '@zofai/schema-diff';
 const before = await readSchema(process.cwd(), 'before.sql');
 const after = await readSchema(process.cwd(), 'after.sql');
 const report = compareSchemas(before, after, { failOn: 'high' });
