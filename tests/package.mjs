@@ -38,7 +38,7 @@ try {
     JSON.stringify({ private: true, type: "module" }),
   );
   const candidates = [];
-  const evidence = resolve("../../orchestration/artifacts/zof-ai-evidence-spec-0.1.0.tgz");
+  const evidence = resolve("../../orchestration/artifacts/zof-ai-evidence-spec-0.1.1.tgz");
   try { await access(evidence); candidates.push(evidence); } catch {}
   run(process.platform === "win32" ? "npm.cmd" : "npm", [
     "install",
@@ -49,7 +49,7 @@ try {
     join(temp, packed.filename),
   ]);
   const cli = join(temp, "node_modules", "@zof-ai/schema-diff", "dist/cli.js");
-  assert.match(run(process.execPath, [cli, "--version"]), /0\.1\.0/);
+  assert.match(run(process.execPath, [cli, "--version"]), /0\.1\.1/);
   assert.match(run(process.execPath, [cli, "--help"]), /Static/);
   run(process.execPath, [
     "--input-type=module",

@@ -7,7 +7,7 @@ try {
     console.log(
       "zof-schema-diff BASELINE.sql CANDIDATE.sql [--root DIR] [--json|--markdown] [--fail-on SEVERITY]\nStatic offline snapshots. Exit 0: below threshold; 1: findings; 2: invalid/unsupported input.",
     );
-  else if (args.includes("--version")) console.log("0.1.0");
+  else if (args.includes("--version")) console.log("0.1.1");
   else {
     let root = process.cwd(),
       json = false,
