@@ -20,7 +20,10 @@
     "LICENSE",
     "CHANGELOG.md",
     "docs",
-    "examples"
+    "examples",
+    "SECURITY.md",
+    "CONTRIBUTING.md",
+    "CODE_OF_CONDUCT.md"
   ],
   "engines": {
     "node": ">=22"
@@ -52,5 +55,8 @@
   "devDependencies": {
     "typescript": "5.9.3",
     "@types/node": "22.19.11"
+  },
+  "dependencies": {
+    "@zof-ai/evidence-spec": "0.1.0"
   }
 }

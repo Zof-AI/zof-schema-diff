@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, writeFile, readFile, rm } from "node:fs/promises";
+import { mkdtemp, writeFile, readFile, rm, access } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join, resolve } from "node:path";
 import { spawnSync } from "node:child_process";
@@ -37,11 +37,15 @@ try {
     join(temp, "package.json"),
     JSON.stringify({ private: true, type: "module" }),
   );
+  const candidates = [];
+  const evidence = resolve("../../orchestration/artifacts/zof-ai-evidence-spec-0.1.0.tgz");
+  try { await access(evidence); candidates.push(evidence); } catch {}
   run(process.platform === "win32" ? "npm.cmd" : "npm", [
     "install",
     "--ignore-scripts",
     "--no-audit",
     "--no-fund",
+    ...candidates,
     join(temp, packed.filename),
   ]);
   const cli = join(temp, "node_modules", "@zof-ai/schema-diff", "dist/cli.js");

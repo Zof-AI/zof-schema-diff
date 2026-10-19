@@ -1,0 +1,2 @@
+import{test}from'node:test';import assert from'node:assert/strict';import{compareSchemas}from'../dist/index.js';
+test('credential-shaped schema identifiers are omitted from finding paths',()=>{for(const token of ['ghp_0123456789abcdefghijklmnopqrstuv','npm_0123456789abcdefghijklmnopqrstuv']){const report=compareSchemas(`CREATE TABLE ${token} (id int); CREATE TABLE t (id int);`,'CREATE TABLE t (id int);');assert.equal(report.risky,true);assert.ok(!JSON.stringify(report).includes(token));}});

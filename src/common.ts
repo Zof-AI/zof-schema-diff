@@ -1,3 +1,4 @@
+import { redactText } from "@zof-ai/evidence-spec";
 import { constants } from "node:fs";
 import { lstat, open, realpath } from "node:fs/promises";
 import { resolve, sep, isAbsolute } from "node:path";
@@ -119,6 +120,7 @@ export function exceeds(
   );
 }
 export function display(path: string): string {
+  path = redactText(path);
   return /^[\w/.{}~:$ -]{1,400}$/.test(path) && !path.includes("://")
     ? path
     : "[location omitted]";
