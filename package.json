@@ -53,7 +53,7 @@
     "test:package": "node tests/package.mjs"
   },
   "devDependencies": {
-    "typescript": "5.9.3",
+    "typescript": "7.0.2",
     "@types/node": "22.19.11"
   },
   "dependencies": {
