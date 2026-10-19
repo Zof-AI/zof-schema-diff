@@ -2,6 +2,25 @@
 
 Analyze PostgreSQL schema snapshots for data-loss and migration rollout concerns. The offline parser compares supported `CREATE TABLE` and simple `CREATE INDEX` definitions, then reports table/column drops, type/default changes, nullability, constraints, indexes and foreign-key creation order.
 
+<!-- ZOF_RELEASE_INSTALL_START -->
+## Install from GitHub source
+
+Requires Node.js 22 or 24, npm, and Git. Filesystem operations require Linux or macOS with Python 3.10 or newer; Windows file operations fail closed. Clone this repository and explicitly prepare its reviewed release dependencies:
+
+```sh
+git clone https://github.com/Zof-AI/zof-schema-diff.git
+cd zof-schema-diff
+node scripts/bootstrap.mjs --allow-network
+npm ci --ignore-scripts --prefer-offline
+npm run build
+npm test
+```
+
+The bootstrap downloads only the exact public `v0.1.0` dependency assets listed in `scripts/release-dependencies.json`, verifies SHA256 and byte size, and adds them to the npm cache. It does not extract archives, run package scripts, collect application data, or send credentials. Downloads require the explicit flag and follow only HTTPS GitHub asset redirects. Installation then fetches ordinary third-party dependencies from npm. Use a writable npm cache; set `npm_config_cache` consistently for both commands if needed. An unavailable asset, changed hash, or oversized response stops installation.
+
+GitHub source and release artifacts are the initial distribution channel. These instructions do not claim that `@zof-ai` packages are published on npm or that the VS Code extension is listed in Marketplace.
+<!-- ZOF_RELEASE_INSTALL_END -->
+
 ## Local installation
 
 Use Node.js 22 or 24:
