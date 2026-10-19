@@ -1,5 +1,5 @@
 {
-  "name": "@zofai/schema-diff",
+  "name": "@zof-ai/schema-diff",
   "version": "0.1.0",
   "description": "Static PostgreSQL schema compatibility and migration risk analysis",
   "type": "module",
@@ -57,6 +57,6 @@
     "@types/node": "22.19.11"
   },
   "dependencies": {
-    "@zofai/evidence-spec": "0.1.0"
+    "@zof-ai/evidence-spec": "0.1.0"
   }
 }
