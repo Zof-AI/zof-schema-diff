@@ -6,4 +6,4 @@ A maximum 4 MiB per SQL file and 100,000 tokens prevents unbounded parsing. CHEC
 
 Renames appear as drops/additions. Equivalent expressions can produce false positives. Static finding severity is advisory: production risk also depends on data volume, lock duration, traffic, indexes, configuration and rollout order. A low-severity addition still needs an operational plan. The CLI never requests credentials or opens a database connection.
 
-Synthetic acceptance tests use only an explicitly created isolated local PostgreSQL container, never a production database. Hosted integration and production verification are not implemented. Public installation, legal approval and independent release review remain gates.
+Synthetic acceptance tests use only an explicitly created isolated local PostgreSQL container, never a production database. Hosted integration and production verification are not implemented. Independent release review and actual installation checks establish acceptance; they are separate from static analysis and registry ownership.
